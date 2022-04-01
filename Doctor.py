@@ -4,7 +4,7 @@ from Person import Person
 class Doctor(Person):
     def __init__(self, name, surname, age, id_number, speciality):
         Person.__init__(self, name, surname, age)
-        self.id_number = name
+        self.id_number = id_number
         self.speciality = speciality
         self.patients = {}
 
@@ -15,13 +15,14 @@ class Doctor(Person):
         try:
             self.patients.pop(patient_id)
         except:
-            print(f"Somthing wrong! Failed to delete patient with id {patient_id}!")
+            print(f"Something wrong! Failed to delete patient with id {patient_id}!")
 
     def all_patient(self):
-        print("ID    | Surname N.P.   ")
+        print("ID    | Surname N.P.")
         for key, value in self.patients.items():
             print('{: <5}'.format(key), end=" | ")
             print('{: <5}'.format(value))
 
     def __str__(self):
-        return f'ФИ: {self.surname} {self.name}\nВозраст: {self.age}\nНомер удосоверения: {self.id_number}\nСпециальность: {self.speciality}'
+        return f'ФИ: {self.surname} {self.name}\nВозраст: {self.age}\nНомер удостоверения: {self.id_number}' \
+               f'\nСпециальность: {self.speciality}'
