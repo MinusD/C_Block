@@ -23,6 +23,7 @@
 
 from Doctor import *
 from Nurse import *
+from Hospital import *
 
 """doc = Doctor("Vova", "Medven", 35, 10, "Proctologist")
 doc.new_patient(1, "Petrov F.E.")
