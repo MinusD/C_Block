@@ -1,10 +1,10 @@
 """
 Создать класс Hospital.
     Поля:
-        название больницы,
-        адрес,
-        список врачей (список экземпляров класса Doctor),
-        список медсестер (список экземпляров класса Nurse)
+        + название больницы,
+        + адрес,
+        + список врачей (список экземпляров класса Doctor),
+        + список медсестер (список экземпляров класса Nurse)
 
     Определить конструктор.
 
@@ -13,8 +13,9 @@
         переопределения в классах Doctor и Nurse).
 
     Переопределить методы
-        получения количества врачей функцией len,
-        получения врача по индексу, изменения по индексу,
+        + получения количества врачей функцией len,
+        + получения врача по индексу,
+        изменения по индексу,
         удаления по индексу (пусть номера врачей считаются с 1, а индекс 0 – список всех медсестер).
 
     Переопределить операции + и - для добавления или удаления врача.
@@ -34,10 +35,34 @@ class Hospital:
         self.nurses = []
 
     def __str__(self):
-        print(123)
+        print(321)
+
+    def __add__(self, doc):
+        self.doctors.append(doc)
 
     def __len__(self):
         return len(self.doctors)
 
-    def __add__(self, doc):
-        self.doctors.append(doc)
+    def __getitem__(self, i):
+        try:
+            return self.doctors[i - 1] if i else self.nurses
+        except IndexError:
+            print("Something wrong! Doctor not found!")
+
+
+if __name__ == '__main__':
+    try:
+        hos = Hospital('Центральная больница #1', 'Волоколамское ш., 84, Москва, 125424')
+        doc = Doctor("Вова", "Медвен", 35, 10, "Окулист")
+        hos + doc
+        print(len(hos))
+        print(hos[0])
+        print(hos[1])
+        print(hos[2])
+
+
+    except AssertionError:
+        print("TEST ERROR")
+        traceback.print_exc()
+    else:
+        print("TEST PASSED")
