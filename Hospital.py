@@ -123,6 +123,8 @@ if __name__ == '__main__':
         hos[1] = doc3
         del hos[2]
         print(hos)
+        hos - doc3
+        print(hos)
 
     except AssertionError:
         print("TEST ERROR")

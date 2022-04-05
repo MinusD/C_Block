@@ -34,10 +34,11 @@ doc.del_patient(2)
 doc.del_patient(2)
 doc.all_patient()
 print(doc)
-"""
+
 nur = Nurse("Анна", "Анимова", 20, 234, "Центральный департамент",
             {'Monday': '10:00-17:00', 'Tuesday': '10:00-17:00', 'Friday': '10:00-17:00'})
 nur.add_schedule("Thursday", "12:00-13:00")
 nur.edit_schedule("Thursday1", "12:00-13:00")
 nur.delete_schedule("Thursday")
 print(nur)
+"""
